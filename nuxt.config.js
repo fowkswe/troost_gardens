@@ -1,5 +1,11 @@
+const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
+  router: {
+    base: '/troost_gardens/'
+  }
+} : {}
 
 export default {
+  ...routerBase,
   mode: 'universal',
   /*
   ** Headers of the page
@@ -78,5 +84,5 @@ export default {
       //   use: [{ loader: 'coffee-loader' }]
       // })
     }
-  }
+  },
 }
