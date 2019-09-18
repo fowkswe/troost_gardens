@@ -1,72 +1,36 @@
-<template>
-  <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        troost_gardens_front
-      </h1>
-      <h2 class="subtitle">
-        Nuxt frontend for troostgardens.com
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
-  </div>
+<template lang='pug'>
+  .index_page.d-flex.justify-content-center.align-items-center
+    .image_container
+      NuxtLink(to='/items/thing')
+        img(src='~assets/philomene.jpg')
+      .caption
+        | V. White Landscape
+        .whisper Philomene Bennett
 </template>
-
-<script>
-import Logo from '~/components/Logo.vue'
-
-export default {
-  components: {
-    Logo
-  }
-}
+<script lang='coffee'>
+export default
+  mounted: ->
+    console.log 'hi'
 </script>
 
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
+<style lang='sass'>
+  .index_page
+    min-height: calc(100vh - 70px)
+    .image_container
+      position: relative
+      width: 65%
+      margin-bottom: 30vh
+      img
+        width: 100%
+      .caption
+        position: absolute
+        background: rgba(255, 255, 255, 0.7)
+        color: #333
+        padding: 10px
+        bottom: 10px
+        right: 10px
+        font-size: 20px
+        font-family: Helvetica
+        .whisper
+          font-size: 13px
 </style>
