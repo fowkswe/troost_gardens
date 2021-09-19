@@ -6,6 +6,9 @@ const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
 
 export default {
   ...routerBase,
+  server: {
+    port: 5000
+  },
   mode: 'universal',
   /*
   ** Headers of the page
@@ -19,10 +22,8 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=IBM+Plex+Mono|Alegreya+Sans+SC|Turret+Road&display=swap' }
-      // { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Ubuntu&display=swap' }
-      // { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Fugaz+One&display=swap' }
-
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,500;0,900&family=Turret+Road:wght@400&display=swap' }
+      // { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=IBM+Plex+Mono|Alegreya|Turret+Road|Be+Vietnam&display=swap' }
     ]
   },
   /*
@@ -39,6 +40,7 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~/plugins/vue-gtag.js',
   ],
   /*
   ** Nuxt.js dev-modules
