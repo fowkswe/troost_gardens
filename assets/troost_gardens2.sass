@@ -1,0 +1,49 @@
+$red: #ff684e
+$blue: #005a86
+#__nuxt, #__layout, html, body
+  height: 100%
+  font-family: 'Be Vietnam', sans-serif
+
+header
+.logo
+  a
+    transition: text-shadow 0.3s ease
+    text-shadow: 1px 1px 0 #ff684e, 2px 2px 0 yellow, 3px 3px 0 blue
+    font-family: 'Turret Road', cursive
+    // font-family: 'Source Code Pro', monospace
+    letter-spacing: 1.5px
+    font-size: 2vw
+    text-transform: uppercase
+    text-decoration: none
+    color: #333
+    &:hover
+      transition: text-shadow 0.3s ease
+      text-shadow: -1px -1px 0 #ff684e, -2px -2px 0 yellow, -3px -3px 0 blue
+
+#menu
+  ul
+    li
+      list-style: none
+      display: inline
+      margin: 0 2vw
+  a
+    color: #333
+    letter-spacing: 1.3px
+    // font-family: 'Turret Road', cursive
+    text-transform: uppercase
+
+footer
+  background: #ff684e
+  color: yellow
+  height: 400px
+
+
+.button
+  background-color: $blue
+  color: white
+  text-transform: uppercase
+  font-family: 'IBM Plex Mono', monospace
+  letter-spacing: 1.3px
+  padding: 8px 35px
+  border: 1px solid #333
+  border-radius: 4px
