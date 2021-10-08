@@ -1,22 +1,3 @@
 # troost_gardens_front
-
-> Nuxt frontend for troostgardens.com
-
-## Build Setup
-
-``` bash
-# install dependencies
-$ yarn install
-
-# serve with hot reload at localhost:3000
-$ yarn dev
-
-# build for production and launch server
-$ yarn build
-$ yarn start
-
-# generate static project
-$ yarn generate
-```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+https://kchistory.org/islandora/object/kchistory%3A99479?solr_nav%5Bid%5D=88ca7299a48ed45d406e&solr_nav%5Bpage%5D=0&solr_nav%5Boffset%5D=5
+https://kchistory.org/islandora/object/kchistory%3A99482?solr_nav%5Bid%5D=88ca7299a48ed45d406e&solr_nav%5Bpage%5D=0&solr_nav%5Boffset%5D=0

@@ -2,5 +2,4 @@
   header
     nuxt-link(to='/')
       h1 Troost Gardens
-      //- TroostGardensLogo
 </template>

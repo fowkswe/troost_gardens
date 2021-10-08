@@ -1,9 +1,8 @@
 <template lang='pug'>
-  .index_page
+  .page.index_page
+    .hero
+      img.img(src='~/assets/front_of_building.jpg')
     .content
-      .mb-5
-        img.img(src='~/assets/front_of_building.jpg')
-      .mb-1 &nbsp;
       .row.mb-3
         .col-md-8
           section
@@ -21,107 +20,66 @@
                 | troostgardens
               | &nbsp;for updates.
 
-
       .row.mb-3
         .col-md-8
           section
             h2.mb-5 Exhibitions
-            section
-              h3.mb-2 
-                a(href='/exhibitions/sunshine-and-shadow')
-                  | Sunshine and Shadow: 
-                  span.lowercase Textiles in Contemporary Art
-              h4.mb-4 September 18, 2021 - October 9, 2021
-              p Works by:
-              .row.mb-4.mb-md-1
-                .col-md-5 Laura Berman
-                .col-md-7
-                  a(href='https://www.instagram.com/bermanlaura/' target='_blank')
-                    InstagramLogo.instagram
-                    | bermanlaura
-              .row.mb-4.mb-md-1
-                .col-md-5 Kim Eichler-Messmer
-                .col-md-7
-                  a(href='https://www.instagram.com/kimemquilts/' target='_blank')
-                    InstagramLogo.instagram
-                    | kimemquilts
-              .row.mb-4.mb-md-1
-                .col-md-5 Lily Mueller
-                .col-md-7
-                  a(href='https://www.instagram.com/lilymariemueller/' target='_blank') 
-                    InstagramLogo.instagram
-                    | lilymariemueller
-              .row.mb-4.mb-md-1
-                .col-md-5 Melissa Paré
-                .col-md-7
-                  a(href='https://www.instagram.com/moraye_/' target='_blank') 
-                    InstagramLogo.instagram
-                    | moraye_
-              .row.mb-4.mb-md-1
-                .col-md-5 Gerry Trilling
-                .col-md-7
-                  a(href='https://www.instagram.com/trillinggerry/' target='_blank') 
-                    InstagramLogo.instagram
-                    | trillinggerry
-            section
-              h3.mb-2 
-                a(href='/exhibitions/you-like-what-you-know') You Like What You Know
-              h4.mb-4 August 21, 2021 - September 11, 2021
-              p 
-                | Folk art selections from the Fowks family collection. 
+            b-row
+              b-col(cols='12' md='2')
+                h6 Current
+              b-col(cols='12' md='10')
+                section
+                  h3.mb-2 
+                    a(href='/exhibitions/sunshine-and-shadow')
+                      | Sunshine and Shadow: 
+                      span.lowercase Textiles in Contemporary Art
+                  h4.mb-4 September 18, 2021 - October 9, 2021
 
-            section
-              h3.mb-2 Primer
-              h4.mb-4 November 2021
-              p 
-                | Curated by 
-                a(href='https://www.instagram.com/philipdenker' target='_blank') 
-                  InstagramLogo.instagram
-                  | philipdenker
-                |.
-              p Artists, TBD
-            
-            section
-              h3.mb-2 
-                a(href='https://www.lodgergallery.com/shapeshifters' target='_blank') Shape Shifters
-              h4.mb-4 December 20th 2020 - January 16, 2021
-              p 
-                | Curated by 
-                a(href='https://www.instagram.com/lodger_art' target='_blank') 
-                  InstagramLogo.instagram
-                  | lodger_art
-                br
-                a(href='https://www.lodgergallery.com/shapeshifters' target='_blank') View Show &nearr;
-              p Works by:
-              .row.mb-4.mb-md-1
-                .col-md-5 Dyl Sanchez
-                .col-md-7
-                  a(href='https://www.instagram.com/baba_gan0ush' target='_blank')
-                    InstagramLogo.instagram
-                    | baba_gan0ush
-              .row.mb-4.mb-md-1
-                .col-md-5 Cesar Lopez
-                .col-md-7
-                  a(href='https://www.instagram.com/youngbauhaus' target='_blank')
-                    InstagramLogo.instagram
-                    | youngbauhaus
-              .row.mb-4.mb-md-1
-                .col-md-5 Kylie McConnell
-                .col-md-7
-                  a(href='https://www.instagram.com/garbage.human' target='_blank') 
-                    InstagramLogo.instagram
-                    | garbage.human
+            b-row
+              b-col(cols='12' md='2')
+                h6 Upcoming
+              b-col(cols='12' md='10')
+                section
+                  h3.mb-2 Primer
+                  h4.mb-4 Late November 2021
+                  p 
+                    | Curated by 
+                    a(href='https://www.instagram.com/philipdenker' target='_blank') 
+                      InstagramLogo.instagram
+                      | philipdenker
+                    |.
+            b-row
+              b-col(cols='12' md='2')
+                h6 Past
+              b-col(cols='12' md='10')
+                section
+                  h3.mb-2 
+                    a(href='/exhibitions/you-like-what-you-know') You Like What You Know
+                  h4.mb-4 August 21, 2021 - September 11, 2021
+                  p 
+                    | Folk art selections from the Fowks family collection. 
+
+                section
+                  h3.mb-2 
+                    a(href='/exhibitions/shape-shifters') Shape Shifters
+                  h4.mb-4 December 20th 2020 - January 16, 2021
+                  p 
+                    | Curated by 
+                    a(href='https://www.instagram.com/lodger_art' target='_blank') 
+                      InstagramLogo.instagram
+                      | lodger_art
         .col-md-4
           h2.mb-5 Contact
           .contacts
             p 
-              | 7323 Troost<br>
-              | KCMO 64131
-            div 
-              .mb-1
-                a(href='https://www.instagram.com/troostgardens' target='_blank')
-                  InstagramLogo.instagram
-                  |troostgardens
+              a(href='https://goo.gl/maps/gcTpQK8mbfhQEL1FA' target='_blank')
+                | 7323 Troost<br>
+                | KCMO 64131
+            p 
+              a(href='https://www.instagram.com/troostgardens' target='_blank')
+                InstagramLogo.instagram
+                |troostgardens
+            p 
               a(href='mailto:hi@troostgardens.com') hi@troostgardens.com
         
           
@@ -149,9 +107,15 @@ export default
 </script>
 
 <style lang='sass' scoped>
+.hero
+  margin-bottom: 40px
+  img
+    width: 100%
+    border-radius: 25px
+.content
+  font-size: 20px
+
 table
   td
     padding: 0 20px 8px 0
-.lowercase
-  text-transform: none
 </style>

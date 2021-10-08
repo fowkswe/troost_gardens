@@ -22,11 +22,11 @@
     "npx": "^10.2.0",
     "nuxt": "^2.9.2",
     "push-dir": "^0.4.1",
-    "vue-gtag": "^1.16.1",
-    "vue-picture-swipe": "^1.2.0"
+    "vue-gtag": "^1.16.1"
   },
   "devDependencies": {
     "@nuxt/babel-preset-app": "^2.9.1",
+    "@nuxt/image": "^0.6.0",
     "@nuxtjs/eslint-config": "^1.0.1",
     "@nuxtjs/eslint-module": "^1.0.0",
     "babel-eslint": "^10.0.1",

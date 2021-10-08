@@ -1,19 +1,23 @@
 <template lang='pug'>
   .troost_gardens
-    .container
-      .bounding_box
-        Header
-        Nuxt
+    b-container(fluid)
+      header
+        nuxt-link(to='/')
+          h1 Troost Gardens
+      Nuxt
     footer
       .container
         .footer-box
-          .d-flex.justify-content-between
-            .contact 7323 Troost, KCMO 64131
-            .copy All Images &copy;{{year}} Troost Gardens
-            .insta
-              a(href='https://www.instagram.com/troostgardens')
-                InstagramLogo.instagram
-                | troostgardens
+          b-row
+            b-col(cols='12' md='4')
+              a(href='https://goo.gl/maps/gcTpQK8mbfhQEL1FA' target='_blank').contact 7323 Troost, KCMO 64131
+            b-col(cols='12' md='4')
+              .copy All Images &copy;{{year}} Troost Gardens
+            b-col(cols='12' md='4')
+              .insta
+                a(href='https://www.instagram.com/troostgardens')
+                  InstagramLogo.instagram
+                  | troostgardens
 </template>
 <style>
 </style>
@@ -28,21 +32,10 @@ export default
       new Date().getFullYear()
 </script>
 <style lang='sass' scoped>
-.bounding_box
-  background: white
-  box-shadow: -10px 10px 2px #d2d2d270
-  margin-top: 20px
-  margin-bottom: 90px
-  padding: 40px
-  border-radius: 25px
 .footer-box
-  background: white
-  box-shadow: -10px -10px 2px #d2d2d270
   font-size: 1.4rem
-  padding: 40px
-  border-radius: 25px 25px 0 0
   svg
-    width: 30px
-
-  
+    width: 20px
+  div[class^='col']
+    margin-bottom: 20px
 </style>

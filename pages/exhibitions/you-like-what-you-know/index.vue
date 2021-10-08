@@ -1,16 +1,18 @@
 <template lang='pug'>
-  .you-like-what-you-know
+  .page.you-like-what-you-know
     .content
       .mb-5
-        .img
-          img(src='~/assets/images/william-fowks-joplin-main-street.jpg')
-        .caption 
-          i Joplin Main Street before 1970, 
-          | William Fowks - 2000
+        .hero
+          b-img(src='~/assets/images/william-fowks-joplin-main-street.jpg' fluid)
+          .caption 
+            .credit &copy;2021 Billy Fowks
+            .info
+              | William Fowks, 
+              i Joplin Main Street before 1970
       b-row
         b-col(cols='12' md='4')
           h3 You Like What You Know
-          h4 
+          p 
             | August 21, 2021 - 
             br 
             |  September 11, 2021
