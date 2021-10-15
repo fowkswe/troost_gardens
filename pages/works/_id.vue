@@ -12,13 +12,13 @@
         | {{work.medium}}
         br
         | {{work.dimensions}}
-        br
-        | ${{work.price_cents/100}}
-        br
-        br
-        a.button(:href='mail_to') 
-          | Inquire
-          RightArrow
+        .buy(v-if='work.price_cents > 0')
+          | ${{work.price_cents/100}}
+          br
+          br
+          a.button(:href='mail_to') 
+            | Inquire
+            RightArrow
     .image_pane
       .image
         nuxt-img(:src='work.images[0].image.url' fluid)
@@ -34,9 +34,15 @@ export default
     title: @title
     meta: [
       { property: 'og:title', content: @title }
-      { property: 'og:image', content: @$img(@work.images[0].image.url) }
+      { hid: 'description', name: 'description', content: @description }
+      { property: 'og:description', content: @description }
+      { property: 'og:image', content: @meta_image }
       { property: 'og:url', content: "https://www.troostgardens.com#{@$route.path}" }
       { property: 'og:site_name', content: 'Troost Gardens - Kansas City Art' }
+      { hid: 'twitter:title', name: 'twitter:title', content: @title }
+      { hid: 'twitter:description', name: 'twitter:description', content: @description }
+      { hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' }
+      { hid: 'twitter:image', name: 'twitter:image', content: @meta_image }
     ]
   components: { RightArrow, TimesIcon, Header }
   mounted: ->
@@ -44,8 +50,12 @@ export default
   beforeDestroy: ->
     window.removeEventListener 'keydown', @presser
   computed: 
+    description: ->
+      "#{@maker_name} - #{@work.title}.  #{@work.medium}, #{@work.dimensions} at Troost Gardens, Kansas City, MO"
     title: ->
       "#{@maker_name} - #{@work.title} at Troost Gardens, Kansas City"
+    meta_image: ->
+      "https://www.troostgardens.com#{@$img(@work.images[0].image.url)}"
     maker_name: ->
       "#{@work.maker.first_name} #{@work.maker.last_name}"
     mail_to: ->
