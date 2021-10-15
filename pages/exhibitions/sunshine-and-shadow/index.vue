@@ -1,19 +1,5 @@
 <template lang='pug'>
   .page.sunshine-and-shadow
-    .hero
-      .mb-5
-        b-row.images
-          b-col(cols='12' md='6')
-            nuxt-img(src='http://localhost:3000/uploads/image/image/28/swarm.jpg' fluid)
-            .caption 
-              i Swarm
-              | Melissa Paré
-          b-col(cols='12' md='6')
-            b-img(src='/images/sunshine-and-shadow/lily-meuller-reflection.jpg' fluid)
-            .caption 
-              i Reflection 
-              | Lily Meuller - 2021
-      pre {{work}}
     section
       b-row
         b-col(cols='12' md='4')
@@ -25,6 +11,17 @@
               | September 18, 2021 - 
               br 
               |  October 9, 2021
+        b-col(cols='12' md='8')
+          .slides
+            .slide(v-for='(image, i) in images' :class='slideClass(i)' v-touch:swipe='swipeHandler')
+              .contents
+                nuxt-img(:src='image.image.url')
+                .caption 
+                  .info {{image.caption}}
+                  .credit {{image.credit}}
+    section
+      b-row
+        b-col(cols='12' md='4')
           .mb-5
             h6 Works by:
             .row.mb-4.mb-md-1
@@ -76,18 +73,41 @@
 </template>
 <script lang='coffee'>
 import InstagramLogo from '~/components/InstagramLogo'
+import gallery from '~/mixins/gallery.coffee'
+
 export default
+  mixins: [gallery]
   head: ->
-    title: 'Sunshine and Shadow: Textiles in Contemporary Art - Troost Gardens, Kanasas City'
+    title: @title
     meta: [
-      { property: 'og:title', content: @exhibition.title }
-      { property: 'og:image', content: @$img('http://localhost:3000/uploads/image/image/28/swarm.jpg') }
+      { hid: 'description', name: 'description', content: @description }
+      { property: 'og:title', content: @title }
+      { property: 'og:description', 'Sunshine and Shadow: Textiles in Contemporary Art, five contemporary midwestern artists - Laura Berman, Kim Eichler-Messmer, Lily Mueller, Melissa Paré and Gerry Trilling' }
+      { property: 'og:image', content: @meta_image }
       { property: 'og:url', content: "https://www.troostgardens.com#{@$route.path}" }
       { property: 'og:site_name', content: 'Troost Gardens - Kansas City Art' }
+      { hid: 'twitter:title', name: 'twitter:title', content: @title }
+      { hid: 'twitter:description', name: 'twitter:description', content: @description }
+      { hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' }
+      { hid: 'twitter:image', name: 'twitter:image', content: @meta_image }
+
     ]
   components: { InstagramLogo }
   data: ->
     exhibition: null
+  computed:
+    title: ->
+      'Sunshine and Shadow: Textiles in Contemporary Art - Troost Gardens, Kanasas City'
+    description: ->
+      'Troost Gardens: five contemporary midwestern artists - Laura Berman, Kim Eichler-Messmer, Lily Mueller, Melissa Paré and Gerry Trilling'
+    meta_image: -> 
+      "https://www.troostgardens.com#{@$img('http://localhost:3000/uploads/image/image/28/swarm.jpg')}"
+    horizontal_images: ->
+      @exhibition.images.filter (i) => i.horizontal
+    vertical_images: ->
+      @exhibition.images.filter (i) => !i.horizontal
+    images: ->
+      @exhibition.images
   methods:
     thumb: (work) ->
       if work.images.length > 0
@@ -99,14 +119,26 @@ export default
       @$router.replace( query: { slug: work.slug })
     workUrl: (work) ->
       "/works/#{work.slug}"
+    swipeHandler: (e) ->
+      if e == 'left'
+        @nextImage()
+      else
+        @previousImage()
   asyncData: (context) ->
-    exhibition = await context.$axios.get('http://localhost:3000/api/exhibitions/1.json')
+    # exhibition = await context.$axios.get("http://localhost:3000/api/exhibitions/#{context.route.params.id}.json")
+    exhibition = await context.$axios.get("http://localhost:3000/api/exhibitions/sunshine-and-shadow.json")
+    
     return
       exhibition: exhibition.data
     
 </script>
 <style lang='sass' scoped>
 .images
+  .image
+    width: 100%
+    img
+      width: 100%
+  
   div[class^='col']
     display: flex
     flex-direction: column
@@ -136,5 +168,25 @@ export default
     margin-bottom: 5px
   h5
     font-style: italic
+.slides
+  width: 100%
+  height: 80vh
+  position: relative
+  .slide
+    position: absolute
+    display: flex
+    justify-content: center
+    top: 0
+    width: 100%
+    height: 100%
+    transition: 0.5s
+    img
+      width: 100%
+      max-height: 98%
+.hide
+  opacity: 0
+.show
+  opacity: 1
+
 
 </style>
