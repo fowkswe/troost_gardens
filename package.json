@@ -22,7 +22,8 @@
     "npx": "^10.2.0",
     "nuxt": "^2.9.2",
     "push-dir": "^0.4.1",
-    "vue-gtag": "^1.16.1"
+    "vue-gtag": "^1.16.1",
+    "vue2-touch-events": "^3.2.2"
   },
   "devDependencies": {
     "@nuxt/babel-preset-app": "^2.9.1",

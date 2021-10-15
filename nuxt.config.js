@@ -42,7 +42,8 @@ export default {
   */
   plugins: [
     '~/plugins/vue-gtag.js',
-  ],
+    '~/plugins/vue-touch-events.js',
+],
   /*
   ** Nuxt.js dev-modules
   */
