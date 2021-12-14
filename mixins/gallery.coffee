@@ -17,12 +17,12 @@
     previousImage: ->
       clearInterval(@runner) if @runner
       if @currentImage == 0
-        @currentImage = @images.length - 1
+        @currentImage = @slideCount - 1
       else
         @currentImage--
     nextImage: ->
       clearInterval(@runner) if @runner
-      if @currentImage < @images.length - 1
+      if @currentImage < @slideCount - 1
         @currentImage++
       else
         @currentImage = 0

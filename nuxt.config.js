@@ -23,7 +23,7 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,500;0,900&family=Turret+Road:wght@400&display=swap' }
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,900;1,700&family=Turret+Road:wght@400&display=swap' }
       // { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=IBM+Plex+Mono|Alegreya|Turret+Road|Be+Vietnam&display=swap' }
     ]
   },
@@ -43,6 +43,7 @@ export default {
   plugins: [
     '~/plugins/vue-gtag.js',
     '~/plugins/vue-touch-events.js',
+    '~/plugins/vue-dayjs.js',
 ],
   /*
   ** Nuxt.js dev-modules

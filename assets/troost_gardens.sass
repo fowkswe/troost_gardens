@@ -4,75 +4,55 @@
 
 body
   font-family: Roboto
-  color: #5D00BB
-  background: white
   font-size: 16px
   font-weight: 400
   letter-spacing: 0.06em
 
-header
-  margin-top: 10px
-  padding: 20px
-  h1
-    font-size: 3rem !important
-    line-height: 3rem
-  a
-    transition: text-shadow 0.3s ease
-    text-shadow: 1px 1px 0 #ff684e, 2px 2px 0 yellow, 3px 3px 0 blue
-    font-family: 'Turret Road', cursive
-    letter-spacing: 3.5px
-    text-transform: uppercase
-    text-decoration: none
-    color: #333
-    &:hover
-      transition: text-shadow 0.3s ease
-      text-shadow: -1px -1px 0 #ff684e, -2px -2px 0 yellow, -3px -3px 0 blue
-      font-style: normal
 
 a
-  color: #531195
-  text-decoration: underline
+  color: #ff5722
   &:hover
-    background: #E1FF28
     color: black
     // color: #FF2222
-    padding-bottom: 3px
     border-bottom: 1px solid black
     text-decoration: none
-    font-style: italic
 
-
+h2, h3, h4, h5, h6
+  a
+    color: black
+    &:hover
+      color: #ff5722
 h2
   font-family: Roboto
-  font-style: italic
   font-weight: 400
   font-size: 36px
   text-transform: uppercase
-  letter-spacing: 8px
+  span
+    color: #ff5722
+    font-weight: 700
 h3
-  font-size: 2.3rem
-  font-weight: 400
+  font-size: 24px
+  font-weight: 700
   font-style: italic
   text-transform: uppercase
 h4
   font-size: 1.3rem
   font-weight: 400
 h5
-  font-size: 32px
-  color: #5D00BB
+  font-size: 16px
+  font-weight: 500
 h6
   font-size: 16px
   font-weight: normal
   text-decoration: underline
+p
+  line-height: 1.6em
 section
   margin-bottom: 50px
-.page
-  max-width: 1600px
-  margin: 0 auto
-.content
-  max-width: 1200px
-  margin: 0px auto
-  font-size: 20px
+
+.container
+  max-width: 1440px !important
+
 .lowercase
   text-transform: none
 

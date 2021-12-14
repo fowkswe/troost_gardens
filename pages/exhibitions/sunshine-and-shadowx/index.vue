@@ -5,58 +5,33 @@
         b-col(cols='12' md='4')
           .mb-5
             h2.mb-4 
-              | Sunshine and Shadow:
-              .lowercase Textiles in Contempoary Art
+              | {{exhibition.exhibition.title}}:
+              .lowercase {{exhibition.exhibition.sub_title}}
             p 
-              | September 18, 2021 - 
+              | {{exhibition.exhibition.start_date | dayjs('MMMM D, YYYY')}}
               br 
-              |  October 9, 2021
+              | {{exhibition.exhibition.end_date | dayjs('MMMM D, YYYY')}}
         b-col(cols='12' md='8')
-          .slides
-            .slide(v-for='(image, i) in images' :class='slideClass(i)' v-touch:swipe='swipeHandler')
-              .contents
-                nuxt-img(:src='image.image.url')
-                .caption 
-                  .info {{image.caption}}
-                  .credit {{image.credit}}
+          //- pre {{exhibition}}
+          .primary_image
+            nuxt-img(:src='exhibition.primary_image.image.url')
+            .caption 
+              .info {{exhibition.primary_image.caption}}
+              .credit {{exhibition.primary_image.credit}}
     section
       b-row
         b-col(cols='12' md='4')
           .mb-5
             h6 Works by:
-            .row.mb-4.mb-md-1
-              .col-md-5 Laura Berman
+            .row.mb-4.mb-md-1(v-for='maker in exhibition.makers')
+              .col-md-5 {{maker.first_name}} {{maker.last_name}}
               .col-md-7
-                a(href='https://www.instagram.com/bermanlaura/' target='_blank')
+                a(href='`https://www.instagram.com/#{maker.instagram}/`' target='_blank')
                   InstagramLogo.instagram
-                  | bermanlaura
-            .row.mb-4.mb-md-1
-              .col-md-5 Kim Eichler-Messmer
-              .col-md-7
-                a(href='https://www.instagram.com/kimemquilts/' target='_blank')
-                  InstagramLogo.instagram
-                  | kimemquilts
-            .row.mb-4.mb-md-1
-              .col-md-5 Lily Mueller
-              .col-md-7
-                a(href='https://www.instagram.com/lilymariemueller/' target='_blank') 
-                  InstagramLogo.instagram
-                  | lilymariemueller
-            .row.mb-4.mb-md-1
-              .col-md-5  Melissa Paré
-              .col-md-7
-                a(href='https://www.instagram.com/moraye_/' target='_blank') 
-                  InstagramLogo.instagram
-                  | moraye_
-            .row.mb-4.mb-md-1
-              .col-md-5 Gerry Trilling
-              .col-md-7
-                a(href='https://www.instagram.com/trillinggerry/' target='_blank') 
-                  InstagramLogo.instagram
-                  | trillinggerry
+                  | {{maker.instagram}}
         b-col(cols='12' md='8')
           .content.mb-5
-            p Troost Gardens is pleased to present our second exhibition, featuring five contemporary midwestern artists - Laura Berman, Kim Eichler-Messmer, Lily Mueller, Melissa Paré and Gerry Trilling. The title of the show “Sunshine and Shadow” is taken from a popular American quilt pattern that was used starting in the late 19th century by the Amish community. It evokes a history of innovative, female driven, fiber based, American abstraction as well as an imagery that is connected to color, light & darkness, and nature. This group of artists investigates the language of textiles and fiber to create dynamic abstractions, each drawing from diverse source material such as a family member’s heart beat, psychedelic music, modern architecture, antique jewelry, weather patterns, and plant life. Although the works are made in diverse media including painted silk, block printing, crochet and hand and machine sewing, they are tied together through an improvisational approach and intuitive sensibility that is well paired with each of their chosen media. Together, the works reveal the exciting possibilities that a contemporary investigation of textiles has to offer. 
+            p(v-html='exhibition.exhibition.description')
     section
       h3 Exhibition Works 
       b-row
@@ -72,7 +47,9 @@
                 h4 {{work.dimensions}}
 </template>
 <script lang='coffee'>
+import SlideShow from '~/components/SlideShow'
 import InstagramLogo from '~/components/InstagramLogo'
+import PlusIcon from '~/components/graphics/PlusIcon'
 import gallery from '~/mixins/gallery.coffee'
 
 export default
@@ -92,9 +69,10 @@ export default
       { hid: 'twitter:image', name: 'twitter:image', content: @meta_image }
 
     ]
-  components: { InstagramLogo }
+  components: { SlideShow, InstagramLogo, PlusIcon }
   data: ->
     exhibition: null
+    slideCount: 0
   computed:
     title: ->
       'Sunshine and Shadow: Textiles in Contemporary Art - Troost Gardens, Kanasas City'
@@ -106,8 +84,22 @@ export default
       @exhibition.images.filter (i) => i.horizontal
     vertical_images: ->
       @exhibition.images.filter (i) => !i.horizontal
+    doubles: ->
+      images = @vertical_images
+      chunks = []
+      loop
+        chunk = []
+        chunk.push(images.shift()) if images
+        chunk.push(images.shift()) if images
+        chunks.push(chunk)
+        break if images.length < 1
+        # break if images == undefined
+      @slideCount = chunks.length
+      chunks
+      
     images: ->
-      @exhibition.images
+      @vertical_images
+      # @exhibition.images
   methods:
     thumb: (work) ->
       if work.images.length > 0
@@ -133,18 +125,10 @@ export default
     
 </script>
 <style lang='sass' scoped>
-.images
-  .image
+
+.primary_image
+  img
     width: 100%
-    img
-      width: 100%
-  
-  div[class^='col']
-    display: flex
-    flex-direction: column
-    justify-content: space-between
-    img
-      width: 100%
 .work
   margin-bottom: 50px
   cursor: pointer
@@ -157,10 +141,10 @@ export default
     border: 1px solid #531195
     a
       font-style: normal !important
-.image
-  margin-bottom: 20px
-  img
-    width: 100%
+  .image
+    margin-bottom: 20px
+    img
+      width: 100%
 .info
   h4, h5
     font-size: 12px
@@ -168,25 +152,4 @@ export default
     margin-bottom: 5px
   h5
     font-style: italic
-.slides
-  width: 100%
-  height: 80vh
-  position: relative
-  .slide
-    position: absolute
-    display: flex
-    justify-content: center
-    top: 0
-    width: 100%
-    height: 100%
-    transition: 0.5s
-    img
-      width: 100%
-      max-height: 98%
-.hide
-  opacity: 0
-.show
-  opacity: 1
-
-
 </style>
