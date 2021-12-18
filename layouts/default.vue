@@ -12,8 +12,8 @@
               .d-flex
                 h1.mr-4 TG
                 p Troost Gardens is a project space based in <br>Kansas City, MO.
-              .copy Unless otherwise specified, all Images &copy;{{year}} Troost Gardens
-          b-col(cols='12' md='6').text-right
+              .copy.mb-4.mb-md-0 Unless otherwise specified, all Images &copy;{{year}} Troost Gardens
+          b-col(cols='12' md='6').text-md-right
             .mb-3
               a(href='https://goo.gl/maps/gcTpQK8mbfhQEL1FA' target='_blank')
                 | 7323 Troost
@@ -86,4 +86,11 @@ footer
     color: #333
   .copy
     font-size: 12px
+
+@media (max-width: 480px)
+  .troost_gardens
+    padding-top: 0px
+    padding-bottom: 0px
+  .container
+    padding: 15px 20px 20px 20px
 </style>

@@ -28,6 +28,8 @@
                 a(:href='`https://www.instagram.com/${maker.instagram}/`' target='_blank' v-if='maker.instagram')
                   InstagramLogo.instagram
                   | {{maker.instagram}}
+          //- .mb-5
+            a View Exhibition Works
         b-col(cols='12' md='8')
           .content.mb-5
             p(v-html='exhibition.exhibition.description')
@@ -137,15 +139,8 @@ export default
 .work
   margin-bottom: 50px
   cursor: pointer
-  padding: 25px
-  border: 1px solid white
-  border-radius: 24px
   a
     text-decoration: none !important
-  &:hover
-    border: 1px solid #531195
-    a
-      font-style: normal !important
   .image
     margin-bottom: 20px
     img
