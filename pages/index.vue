@@ -1,7 +1,7 @@
 <template lang='pug'>
   .index_page
     .hero
-      img.img(src='~/assets/front_of_building.jpg')
+      img.img(src='~/assets/tg_building_front.jpg')
     .content
       section
         h2 
@@ -75,7 +75,7 @@
                         | philipdenker
               
           b-col(cols='12' md='7')
-            b-img(fluid :src='current_exhibition.primary_image.image.url')
+            nuxt-img(fluid :src='current_exhibition.primary_image.image.thumb.url')
 
       section
         h2 
@@ -96,7 +96,7 @@
                 span.mr-2 View Exhibition
                 RightArrow
           b-col(cols='12' md='7')
-            b-img(fluid :src='exhibition.primary_image.image.url')
+            nuxt-img(fluid :src='exhibition.primary_image.image.thumb.url')
       section.exhibtion
         b-row
           b-col(cols='12' md='5')
@@ -227,10 +227,10 @@ export default
 <style lang='sass' scoped>
 .hero
   margin-bottom: 40px
-  img
-    width: 100%
 .content
   font-size: 20px
+img
+  width: 100%
 
 .exhibtion
   margin-bottom: 100px
