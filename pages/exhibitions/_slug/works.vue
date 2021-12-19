@@ -1,13 +1,14 @@
 <template lang='pug'>
 .exhibition_works
   section
+    .back
+      a(:href='`/exhibitions/${exhibition.exhibition.slug}`') 
+        img(src='~/assets/graphics/back_arrow.svg')
+        | Back to exhibition
+
+
     b-row
       b-col(cols='12' md='3')
-        .back
-          a(:href='`/exhibitions/${exhibition.exhibition.slug}`') 
-            img(src='~/assets/graphics/back_arrow.svg')
-            | Back to exhibition
-
         .mb-5
           h3.mb-4 
             | {{exhibition.exhibition.title}}: 
