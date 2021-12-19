@@ -3,14 +3,18 @@
     section
       b-row
         b-col(cols='12' md='4')
-          .mb-5
-            h3.mb-4 
-              | {{exhibition.exhibition.title}}:
-              .lowercase {{exhibition.exhibition.sub_title}}
-            div 
-              | {{exhibition.exhibition.start_date | dayjs('MMMM D, YYYY')}}
-              br 
-              | {{exhibition.exhibition.end_date | dayjs('MMMM D, YYYY')}}
+          .d-flex.flex-column.justify-content-between.h-100
+            .mb-5
+              h3.mb-4 
+                | {{exhibition.exhibition.title}}:
+                span.lowercase {{exhibition.exhibition.sub_title}}
+              div 
+                | {{exhibition.exhibition.start_date | dayjs('MMMM D, YYYY')}}
+                br 
+                | {{exhibition.exhibition.end_date | dayjs('MMMM D, YYYY')}}
+            a.view(:href='`/exhibitions/${exhibition.exhibition.slug}/works`') 
+              | View Exhibition Works
+              RightArrow.ml-2
         b-col(cols='12' md='8')
           .primary_image
             nuxt-img(:src='exhibition.primary_image.image.url')
@@ -28,12 +32,10 @@
                 a(:href='`https://www.instagram.com/${maker.instagram}/`' target='_blank' v-if='maker.instagram')
                   InstagramLogo.instagram
                   | {{maker.instagram}}
-          //- .mb-5
-            a View Exhibition Works
         b-col(cols='12' md='8')
           .content.mb-5
             p(v-html='exhibition.exhibition.description')
-    section
+    //- section
       .mb-5(v-if='exhibition.exhibition.slug == "xprimer"')
         h4 Exhibition Images Coming Soon
       .mb-5(v-else)
@@ -54,6 +56,7 @@
 import SlideShow from '~/components/SlideShow'
 import InstagramLogo from '~/components/InstagramLogo'
 import PlusIcon from '~/components/graphics/PlusIcon'
+import RightArrow from '~/components/graphics/RightArrow'
 import gallery from '~/mixins/gallery.coffee'
 
 export default
@@ -73,7 +76,7 @@ export default
       { hid: 'twitter:image', name: 'twitter:image', content: @meta_image }
 
     ]
-  components: { SlideShow, InstagramLogo, PlusIcon }
+  components: { SlideShow, InstagramLogo, PlusIcon, RightArrow }
   data: ->
     exhibition: null
     slideCount: 0
@@ -132,24 +135,12 @@ export default
     
 </script>
 <style lang='sass' scoped>
-
-.primary_image
-  img
-    width: 100%
-.work
-  margin-bottom: 50px
-  cursor: pointer
-  a
-    text-decoration: none !important
-  .image
-    margin-bottom: 20px
-    img
-      width: 100%
-.info
-  h4, h5
-    font-size: 12px
-    font-weight: normal
-    margin-bottom: 5px
-  h5
-    font-style: italic
+.view
+  font-size: 20px
+  border-bottom: 1px solid white
+  &:hover
+    border-bottom: 1px solid black
+    
+  svg
+    width: 20px
 </style>

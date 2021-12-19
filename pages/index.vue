@@ -211,12 +211,8 @@ export default
       @exhibitions.sort (a, b) =>
         new Date(b.start_date) - new Date(a.start_date)
     past_exhibitions: ->
-      # e = @exhibitions.filter (e) =>
-      #   new Date(e.end_date) < new Date()
       @sorted_exhibitions.slice(1)
     current_exhibition: ->
-      # @exhibitions.filter (e) =>
-      #   new Date(e.end_date) > new Date()
       @sorted_exhibitions[0]
   asyncData: (context) ->
     exhibitions = await context.$axios.get("http://localhost:3000/api/exhibitions.json")
