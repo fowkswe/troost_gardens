@@ -83,7 +83,6 @@ export default
   computed:
     title: ->
       "#{@exhibition.exhibition.title} #{@exhibition.exhibition.sub_title}"
-      # 'Sunshine and Shadow: Textiles in Contemporary Art - Troost Gardens, Kanasas City'
     description: ->
       names = @exhibition.makers.map (m) =>
         "#{m.first_name} #{m.last_name}"
