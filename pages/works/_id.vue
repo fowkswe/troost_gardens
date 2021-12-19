@@ -80,6 +80,13 @@ export default
   height: 100vh
   header
     position: absolute
+    h1
+      text-shadow: 1px 1px 0 #ff684e, 2px 2px 0 yellow, 3px 3px 0 blue
+      font-family: 'Turret Road', san-serif
+      letter-spacing: 3.5px
+      text-transform: uppercase
+      text-decoration: none
+      color: #333
   .info_pane
     width: 25%
     background: black
