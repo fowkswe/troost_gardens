@@ -4,7 +4,7 @@
       header
         nuxt-link(to='/')
           h1 Troost Gardens
-      Nuxt
+      Nuxt.content_body
       footer
         b-row
           b-col(cols='12' md='6')
@@ -55,6 +55,8 @@ export default
 .container
   background: white
   padding: 35px 45px 45px 45px
+.content_body
+  min-height: 70vh
 header
   margin-bottom: 23px
   h1
