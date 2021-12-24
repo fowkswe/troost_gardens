@@ -1,15 +1,16 @@
 <template lang='pug'>
   .index_page
     .hero
-      img.img(src='~/assets/tg_building_front.jpg')
+      nuxt-img.img(src='images/tg_building_front_12_22_21.jpg' sizes="sm:100vw lg:1400px")
+      .caption December 22, 2021 5:24pm
     .content
       section
         h2 
-          | Current
-          span &nbsp;Exhibition
+          span Current 
+          | Exhibition
       section.exhibtion
         b-row
-          b-col(cols='12' md='5')
+          b-col.order-2.order-lg-1(cols='12' md='5')
             .d-flex.flex-column.justify-content-between.h-100
               .info
                 h3.mb-4
@@ -21,69 +22,17 @@
               a.view.d-flex.align-items-center(:href='`/exhibitions/${current_exhibition.slug}`') 
                 span.mr-2 View Exhibition
                 RightArrow
-              //- .shit
-                //- .mb-5
-                  h5.mb-3 Curated by 
-                  b-row
-                    b-col(md='5') Philip Denker
-                    b-col(md='7')
-                      a(href='https://www.instagram.com/philipdenker' target='_blank') 
-                        InstagramLogo.instagram
-                        | philipdenker
-                  h5.mb-3 Works by 
-                  b-row
-                    b-col(md='5') Craig Deppen Auge
-                    b-col(md='7')
-                      a(href='https://www.instagram.com/craigdeppenauge' target='_blank') 
-                        InstagramLogo.instagram
-                        | craigdeppenauge
-                  b-row
-                    b-col(md='5') Luke Firle
-                    b-col(md='7')
-                      a(href='https://www.instagram.com/lukefirle' target='_blank') 
-                        InstagramLogo.instagram
-                        | lukefirle
-                  b-row
-                    b-col(md='5') Martha Elena
-                    b-col(md='7')
-                      a(href='https://www.instagram.com/martha.elenana' target='_blank') 
-                        InstagramLogo.instagram
-                        | martha.elenana
-                  b-row
-                    b-col(md='5') Matthew Willie Garcia
-                    b-col(md='7')
-                      a(href='https://www.instagram.com/matthewwilliegarcia' target='_blank') 
-                        InstagramLogo.instagram
-                        | matthewwilliegarcia
-                  b-row
-                    b-col(md='5') Marcus Cain
-                    b-col(md='7')
-                      a(href='https://www.instagram.com/marcuscain' target='_blank') 
-                        InstagramLogo.instagram
-                        | marcuscain
-                  b-row
-                    b-col(md='5') Garry Noland
-                    b-col(md='7')
-                      a(href='https://www.instagram.com/garry.noland' target='_blank') 
-                        InstagramLogo.instagram
-                        | garry.noland
-                  b-row
-                    b-col(md='5') Philip Denker
-                    b-col(md='7')
-                      a(href='https://www.instagram.com/philipdenker' target='_blank') 
-                        InstagramLogo.instagram
-                        | philipdenker
               
-          b-col(cols='12' md='7')
-            nuxt-img(fluid :src='current_exhibition.primary_image.image.thumb.url')
-
+          b-col.order-1.order-lg-2(cols='12' md='7')
+            a(:href='`/exhibitions/${current_exhibition.slug}`') 
+              nuxt-img.mb-3.mb-lg-0(fluid :src='current_exhibition.primary_image.image.thumb.url')
       section
         h2 
-          | Past
-          span &nbsp;Exhibitions
+          span Past 
+          | Exhibitions
       section.exhibtion(v-for='exhibition in past_exhibitions')
         b-row
-          b-col(cols='12' md='5')
+          b-col.order-2.order-lg-1(cols='12' md='5')
             .d-flex.flex-column.justify-content-between.h-100
               .info
                 h3.mb-4
@@ -95,11 +44,12 @@
               a.view.d-flex.align-items-center(:href='`/exhibitions/${exhibition.slug}`') 
                 span.mr-2 View Exhibition
                 RightArrow
-          b-col(cols='12' md='7')
-            nuxt-img(fluid :src='exhibition.primary_image.image.thumb.url')
+          b-col.order-1.order-lg-2(cols='12' md='7')
+            a(:href='`/exhibitions/${exhibition.slug}`') 
+              nuxt-img.mb-3.mb-lg-0(fluid :src='exhibition.primary_image.image.thumb.url')
       section.exhibtion
         b-row
-          b-col(cols='12' md='5')
+          b-col.order-2.order-lg-1(cols='12' md='5')
             .d-flex.flex-column.justify-content-between.h-100
               .info
                 h3.mb-4
@@ -108,8 +58,9 @@
               a.view.d-flex.align-items-center(href='/exhibitions/shape-shifters')
                 span.mr-2 View Exhibition
                 RightArrow
-          b-col(cols='12' md='7')
-            b-img(fluid src='/images/2-l-to-r-dylan-sanchez-cesar-lopez-2000.jpg')
+          b-col.order-1.order-lg-2(cols='12' md='7')
+            a(href='/exhibitions/shape-shifters')
+              b-img.mb-3.mb-lg-0(fluid src='/images/2-l-to-r-dylan-sanchez-cesar-lopez-2000.jpg')
       //- .row.mb-3
         .col-md-8
           section
@@ -208,12 +159,14 @@ export default
     ]
   computed: 
     sorted_exhibitions: ->
-      @exhibitions.sort (a, b) =>
-        new Date(b.start_date) - new Date(a.start_date)
+      @exhibitions
+      # @exhibitions.sort (a, b) =>
+      #   console.log a, b
+      #   new Date(b.start_date) - new Date(a.start_date)
     past_exhibitions: ->
-      @sorted_exhibitions.slice(1)
+      @exhibitions.slice(1)
     current_exhibition: ->
-      @sorted_exhibitions[0]
+      @exhibitions[0]
   asyncData: (context) ->
     exhibitions = await context.$axios.get("http://localhost:3000/api/exhibitions.json")
     return

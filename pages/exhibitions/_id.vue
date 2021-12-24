@@ -2,11 +2,11 @@
   .page.sunshine-and-shadow
     section
       b-row
-        b-col(cols='12' md='4')
+        b-col.order-lg-1.order-2(cols='12' md='4')
           .d-flex.flex-column.justify-content-between.h-100
             .mb-5
               h3.mb-4 
-                | {{exhibition.exhibition.title}}:
+                | {{exhibition.exhibition.title}}: 
                 span.lowercase {{exhibition.exhibition.sub_title}}
               div 
                 | {{exhibition.exhibition.start_date | dayjs('MMMM D, YYYY')}}
@@ -15,12 +15,12 @@
             a.view(:href='`/exhibitions/${exhibition.exhibition.slug}/works`') 
               | View Exhibition Works
               RightArrow.ml-2
-        b-col(cols='12' md='8')
-          .primary_image
+        b-col.order-lg-2.order-1(cols='12' md='8')
+          .primary_image.mb-0-lg.mb-1
             nuxt-img(:src='exhibition.primary_image.image.url')
-            .caption 
-              .info {{exhibition.primary_image.caption}}
-              .credit {{exhibition.primary_image.credit}}
+          .caption
+            .info {{exhibition.primary_image.caption}}
+            .credit {{exhibition.primary_image.credit}}
     section
       b-row
         b-col(cols='12' md='4')

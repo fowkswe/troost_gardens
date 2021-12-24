@@ -1,18 +1,26 @@
 <template lang='pug'>
 .exhibition_works
   section
-    .back
-      a(:href='`/exhibitions/${exhibition.exhibition.slug}`') 
-        img(src='~/assets/graphics/back_arrow.svg')
-        | Back to exhibition
+    b-row.mt-5.mb-2
+      b-col(cols='12' md='3')
+        .back
+          a(:href='`/exhibitions/${exhibition.exhibition.slug}`') 
+            img(src='~/assets/graphics/back_arrow.svg')
+            | Exhibition Information
+      b-col(cols='12' md='9')
+        .d-flex.justify-content-between.align-items
+          h4.text-uppercase
+            | Exhibition Works: 
+            span.maker(v-if='filtered_maker') {{filtered_maker.first_name}} {{filtered_maker.last_name}}
+          router-link.d-none.d-lg-block(:to='exhibition_link' v-if='filtered_maker') View All
 
 
     b-row
       b-col(cols='12' md='3')
         .mb-5
-          h3.mb-4 
+          h3.mb-5
             | {{exhibition.exhibition.title}}: 
-            .lowercase {{exhibition.exhibition.sub_title}}
+            span.lowercase {{exhibition.exhibition.sub_title}}
           .mb-5
             | {{exhibition.exhibition.start_date | dayjs('MMMM D, YYYY')}}
             br 
@@ -20,28 +28,25 @@
         .mb-5
           h3 Artists
           .whisper (click to filter)
-          ul
+          ul.makers
             li(v-for='maker in makers') 
-              router-link.filter(:to='`/exhibitions/${exhibition.exhibition.slug}/works?maker=${maker.slug}`') {{maker.first_name}} {{maker.last_name}}
+              img(src='~/assets/graphics/forward_arrow.svg' v-if='maker.slug == maker_slug')
+              router-link.filter(:to='`/exhibitions/${exhibition.exhibition.slug}/works?maker=${maker.slug}`') 
+                | {{maker.first_name}} {{maker.last_name}}
           router-link(:to='exhibition_link' v-if='filtered_maker') View All
       b-col(cols='12' md='9')
-        .d-flex.justify-content-between.align-items
-          h3.mb-5 
-            | Exhibition Works 
-            span.maker(v-if='filtered_maker') {{filtered_maker.first_name}} {{filtered_maker.last_name}}
-          router-link(:to='exhibition_link' v-if='filtered_maker') View All
         .mb-5
           b-row
-            b-col(v-for='work in filtered_works' :key='work.id' cols='12' md='4')
-              .work
-                nuxt-link(:to='workUrl(work)')
+            b-col.mb-4(v-for='work in filtered_works' :key='work.id' cols='12' md='4')
+              .work.h-100
+                nuxt-link(:to='workUrl(work)').d-flex.flex-column.justify-content-between.h-100
                   .image(v-if='thumb(work)')
                     nuxt-img(:src='thumb(work)')
                   .info
-                    h5 {{work.title}}
-                    h4 {{work.maker.first_name}} {{work.maker.last_name}}
-                    h4 {{work.medium}}
-                    h4 {{work.dimensions}}
+                    h4 {{work.title}}
+                    h5 {{work.maker.first_name}} {{work.maker.last_name}}
+                    h5 {{work.medium}}
+                    h5 {{work.dimensions}}
 </template>
 <script lang='coffee'>
 export default 
@@ -116,34 +121,38 @@ export default
 </script>
 <style lang='sass' scoped>
 .back
-  margin-bottom: 20px
   img
     width: 20px
     margin-right: 5px
 .maker
   color: #ff5722
 .work
-  margin-bottom: 50px
+  padding-bottom: 50px
   cursor: pointer
   a
     text-decoration: none !important
+    border-bottom: 1px solid white
   .image
-    margin-bottom: 20px
+    margin-bottom: 40px
+    height: 100%
+    display: flex
+    align-items: center
     img
       width: 100%
 .info
   h4, h5
-    font-size: 12px
     font-weight: normal
     margin-bottom: 5px
-  h5
+    font-size: 14px
+  h4
+    font-weight: 400
     font-style: italic
 ul
   padding: 0px
   li
     list-style: none
     margin-bottom: 3px
-.xfilter
-  color: red
-    
+.makers
+  img
+    width: 14px
 </style>
