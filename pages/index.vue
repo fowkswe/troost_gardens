@@ -6,10 +6,14 @@
     .content
       section
         h2 
-          span Current 
-          | Exhibition
+          strike
+            span Current 
+            | Exhibition
       section.exhibtion
-        b-row
+        .w-50
+          p We are currently closed due to the Omicron variant.  We hope to resume our programming and events when pandemic conditions improve.
+        
+        //- b-row
           b-col.order-2.order-lg-1(cols='12' md='5')
             .d-flex.flex-column.justify-content-between.h-100
               .info
@@ -164,7 +168,7 @@ export default
       #   console.log a, b
       #   new Date(b.start_date) - new Date(a.start_date)
     past_exhibitions: ->
-      @exhibitions.slice(1)
+      @exhibitions #.slice(1)
     current_exhibition: ->
       @exhibitions[0]
   asyncData: (context) ->
