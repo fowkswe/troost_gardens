@@ -23,6 +23,8 @@
     "npx": "^10.2.0",
     "nuxt": "^2.9.2",
     "push-dir": "^0.4.1",
+    "sass": "^1.57.1",
+    "swiper": "^8.3.2",
     "vue-flickity": "^1.2.1",
     "vue-gtag": "^1.16.1",
     "vue2-touch-events": "^3.2.2"
@@ -37,9 +39,8 @@
     "coffeescript": "^2.4.1",
     "eslint": "^6.1.0",
     "eslint-plugin-nuxt": ">=0.4.2",
-    "node-sass": "^4.12.0",
     "pug": "2.0.3",
     "pug-plain-loader": "^1.0.0",
-    "sass-loader": "^7.3.1"
+    "sass-loader": "10.1.1"
   }
 }
