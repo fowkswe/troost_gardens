@@ -5,14 +5,44 @@
       .caption December 22, 2021 5:24pm
     .content
       section
+        p Visit our <a href='https://www.instagram.com/troostgardens/' target='_blank'>Instagram</a> account for up-to-date details.
+      section
         h2 
-          strike
-            span Current 
-            | Exhibition
+          span Current 
+          | Exhibition
       section.exhibtion
-        .w-50
-          p We are currently closed due to the Omicron variant.  We hope to resume our programming and events when pandemic conditions improve.
-        
+        b-row
+          b-col.order-2.order-lg-1(cols='12' md='5')
+            .d-flex.flex-column.justify-content-between.h-100
+              .info
+                h3.mb-4
+                  a(href='/') The Ways of Magic
+                .mb-5
+                  h4 January 7th - January 28th, 2023
+                ul
+                  li Yevgeniya Baras
+                  li NedRa Bonds
+                  li Melissa Brown
+                  li Hadley Clark
+                  li Angelina Gualdoni
+                  li EJ Hauser
+                  li Misha Kligman
+                  li Heather Lyon
+                  li Mike Paré
+                  li Andy Ryan
+                  li Chico Sierra
+
+
+
+
+              //- a.view.d-flex.align-items-center(href='/exhibitions/songs-systems-structures')
+                span.mr-2 View Exhibition
+                RightArrow
+          b-col.order-1.order-lg-2(cols='12' md='7')
+            //- a(href='/exhibitions/songs-systems-structures')
+            nuxt-img.mb-3.mb-lg-0(src='images/the-ways-of-magic/andy-ryan-Emission.jpg' sizes="sm:100vw lg:1400px")
+            .caption Andy Ryan, Emission 2022
+
         //- b-row
           b-col.order-2.order-lg-1(cols='12' md='5')
             .d-flex.flex-column.justify-content-between.h-100
@@ -34,6 +64,21 @@
         h2 
           span Past 
           | Exhibitions
+      section.exhibtion
+        b-row
+          b-col.order-2.order-lg-1(cols='12' md='5')
+            .d-flex.flex-column.justify-content-between.h-100
+              .info
+                h3.mb-4
+                  a(href='/exhibitions/songs-systems-structures') Songs, Systems & Structures: A Drawing Survey
+                h4 March 26th, 2022 - <br> April 23rd, 2022
+              a.view.d-flex.align-items-center(href='/exhibitions/songs-systems-structures')
+                span.mr-2 View Exhibition
+                RightArrow
+          b-col.order-1.order-lg-2(cols='12' md='7')
+            a(href='/exhibitions/songs-systems-structures')
+              nuxt-img.mb-3.mb-lg-0(src='images/songs-systems-structures/albert-owens-rickey-moss.jpg' sizes="sm:100vw lg:1400px")
+              //- b-img.mb-3.mb-lg-0(fluid src='/images/2-l-to-r-dylan-sanchez-cesar-lopez-2000.jpg')
       section.exhibtion(v-for='exhibition in past_exhibitions')
         b-row
           b-col.order-2.order-lg-1(cols='12' md='5')
@@ -158,7 +203,7 @@ export default
       {
         hid: 'og:image',
         property: 'og:image',
-        content: 'https://www.troostgardens.com/_nuxt/img/515ba8c.jpg'
+        content: 'https://www.troostgardens.com/_nuxt/image/f81437.jpg'
       }
     ]
   computed: 
