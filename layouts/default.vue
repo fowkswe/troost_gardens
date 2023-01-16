@@ -105,6 +105,7 @@ header
 
 .email_signup
   margin-top: 160px
+  margin-bottom: 160px
   .mc-field-group
     width: 66%
     margin-right: 10px
