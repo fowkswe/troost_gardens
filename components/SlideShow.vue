@@ -267,7 +267,7 @@ export default
       animation: moveSlideshow 1s linear infinite
     @keyframes moveSlideshow
       100%
-        transform: translateX(-66.6666%);  
+        transform: translateX(-66.6666%)
 
 
     // .slide

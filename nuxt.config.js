@@ -42,6 +42,7 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    { src: '~/plugins/swiper.js', mode: 'client' },
     '~/plugins/vue-gtag.js',
     '~/plugins/vue-touch-events.js',
     '~/plugins/vue-dayjs.js',
