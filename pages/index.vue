@@ -14,10 +14,13 @@
         b-row
           b-col.order-2.order-lg-1(cols='12' md='5')
             .d-flex.flex-column.justify-content-between.h-100
-              .info
-                h3.mb-4 Call and Response I: 
-                .mb-5
+              .info.mb-5
+                h3.mb-4 Call and Response I: Unpacking Complex Narratives
+                .mb-3
                   h4 February 4th - Februrary 25th, 2023
+                p Curated by Harold Smith
+              
+                h3 Artists
                 ul
                   li Vivian Wilson-Bluett
                   li Kwanza Humphrey
