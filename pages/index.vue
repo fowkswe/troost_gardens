@@ -15,6 +15,35 @@
           b-col.order-2.order-lg-1(cols='12' md='5')
             .d-flex.flex-column.justify-content-between.h-100
               .info.mb-5
+                h3.mb-4 Fortune's Moving
+                .mb-3
+                  h4 May 13, 2023 - May 27, 2023
+                p Curated by Chelsea Smith
+              
+                h3 Artists
+                ul
+                  li 
+                    a(href='https://niadart.org/felecia-griffin/' target='_blank') Felicia Griffin
+                  li 
+                    a(href='https://www.emkettner.com' target='_blank') Em Kettner
+                  li 
+                    a(href='https://www.noelmaghathe.com' target='_blank') Noel Maghathe 
+                  li 
+                    a(href='https://www.meinolfweavingschool.org' target='_blank') Travis Meinolf 
+                  li 
+                    a(href='https://lillypowell.com' target='_blank') Lilly Powell 
+                  li 
+                    a(href='https://www.formationfiberstudio.com' target='_blank') Ashley Arnett-Shipley
+          b-col.order-1.order-lg-2(cols='12' md='7')
+            .d-flex
+              .image.p-3
+                nuxt-img(src='images/fortunes-moving/em-ketner-the-comet-detail.jpg' sizes="sm:100vw lg:1400px")
+                .caption Em Kettner, The Comet
+      section.exhibtion
+        b-row
+          b-col.order-2.order-lg-1(cols='12' md='5')
+            .d-flex.flex-column.justify-content-between.h-100
+              .info.mb-5
                 h3.mb-4 Call and Response I: Unpacking Complex Narratives
                 .mb-3
                   h4 February 4th - Februrary 25th, 2023
