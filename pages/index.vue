@@ -10,7 +10,61 @@
         h2 
           span Current 
           | Exhibition
-      section.exhibtion
+          section.exhibtion
+        b-row
+          b-col.order-2.order-lg-1(cols='12' md='5')
+            .d-flex.flex-column.justify-content-between.h-100
+              .info.mb-5
+                h3.mb-4 Pollinating Visions
+                .mb-3
+                  h4 June 10, 2023 - July 1, 2023
+              
+                h3 Artists
+                ul
+                  li Hadley Clark
+                  li Kate Clements
+                  li Julie Farstad
+                  li Elise Gagliardi
+                  li Amanda Gehin
+                  li Jackob Graves
+                  li Von Greer
+                  li Rachel Gregor
+                  li Diana Heise
+                  li Caroline Honas
+                  li Hùng Lê
+                  li Linda Lighton
+                  li Frances MacLeod
+                  li Miriamne Marlowe
+                  li Sean Nash
+                  li Jason Needham
+                  li Kiki Serna
+          b-col.order-1.order-lg-2(cols='12' md='7')
+            .d-flex
+              .image.p-3
+                nuxt-img(src='images/pollinating-visions/amanda-gehin-hummingbird-vs-von-karman-vortex-streets-shedding-off-stems.jpg' sizes="sm:100vw lg:1400px")
+                .caption Amanda Gehin: Hummingbird vs Von Kármán Vortex Streets Shedding off Stems
+        //- b-row
+          b-col.order-2.order-lg-1(cols='12' md='5')
+            .d-flex.flex-column.justify-content-between.h-100
+              .info
+                h3.mb-4
+                  a(href='/exhibitions/primer')
+                    | {{current_exhibition.title}}: {{current_exhibition.sub_title}}
+                h4 
+                  | {{current_exhibition.start_date | dayjs('MMMM D, YYYY')}} -
+                  | {{current_exhibition.end_date | dayjs('MMMM D, YYYY')}}
+              a.view.d-flex.align-items-center(:href='`/exhibitions/${current_exhibition.slug}`') 
+                span.mr-2 View Exhibition
+                RightArrow
+              
+          b-col.order-1.order-lg-2(cols='12' md='7')
+            a(:href='`/exhibitions/${current_exhibition.slug}`') 
+              nuxt-img.mb-3.mb-lg-0(fluid :src='current_exhibition.primary_image.image.thumb.url')
+      section
+        h2 
+          span Past 
+          | Exhibitions
+          section.exhibtion
         b-row
           b-col.order-2.order-lg-1(cols='12' md='5')
             .d-flex.flex-column.justify-content-between.h-100
@@ -62,27 +116,6 @@
                 nuxt-img(src='images/call-and-response-1/wilson-bluett.jpg' sizes="sm:100vw lg:1400px")
                 .caption Vivian Wilson-Bluett, Untitled
 
-        //- b-row
-          b-col.order-2.order-lg-1(cols='12' md='5')
-            .d-flex.flex-column.justify-content-between.h-100
-              .info
-                h3.mb-4
-                  a(href='/exhibitions/primer')
-                    | {{current_exhibition.title}}: {{current_exhibition.sub_title}}
-                h4 
-                  | {{current_exhibition.start_date | dayjs('MMMM D, YYYY')}} -
-                  | {{current_exhibition.end_date | dayjs('MMMM D, YYYY')}}
-              a.view.d-flex.align-items-center(:href='`/exhibitions/${current_exhibition.slug}`') 
-                span.mr-2 View Exhibition
-                RightArrow
-              
-          b-col.order-1.order-lg-2(cols='12' md='7')
-            a(:href='`/exhibitions/${current_exhibition.slug}`') 
-              nuxt-img.mb-3.mb-lg-0(fluid :src='current_exhibition.primary_image.image.thumb.url')
-      section
-        h2 
-          span Past 
-          | Exhibitions
       section.exhibtion
         b-row
           b-col.order-2.order-lg-1(cols='12' md='5')
@@ -146,7 +179,8 @@
                 RightArrow
           b-col.order-1.order-lg-2(cols='12' md='7')
             a(:href='`/exhibitions/${exhibition.slug}`') 
-              nuxt-img.mb-3.mb-lg-0(fluid :src='exhibition.primary_image.image.thumb.url')
+              nuxt-img.mb-3.mb-lg-0(fluid :src='exhibition.primary_image.image.thumb.url' sizes="sm:100vw lg:1400px")
+              .caption {{ exhibition.primary_image.caption }}
       section.exhibtion
         b-row
           b-col.order-2.order-lg-1(cols='12' md='5')
