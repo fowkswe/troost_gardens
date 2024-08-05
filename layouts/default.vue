@@ -64,6 +64,7 @@
 #   gtag('js', new Date());
 # 
 #   gtag('config', 'G-2NTVJTCSJY');
+# import { useSanityClient } from 'vue-sanity'
 import Header from '~/components/Header'
 import TroostGardensLogo from '~/components/TroostGardensLogo'
 import InstagramLogo from '~/components/InstagramLogo'
@@ -71,6 +72,12 @@ import RightArrow from '~/components/graphics/RightArrow'
 
 export default
   components: { Header, TroostGardensLogo, InstagramLogo, RightArrow }
+  xsetup: ->
+    useSanityClient
+      projectId: 'gwsyyifo',
+      dataset: 'production',
+      useCdn: process.env.NODE_ENV == 'production'
+
   computed: 
     year: ->
       new Date().getFullYear()

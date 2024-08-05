@@ -36,7 +36,7 @@ export default {
   ** Global CSS
   */
   css: [
-      { src: '~/assets/troost_gardens.sass', lang: 'sass' }
+    { src: '~/assets/troost_gardens.sass', lang: 'sass' }
   ],
   /*
   ** Plugins to load before mounting the App
@@ -45,13 +45,13 @@ export default {
     { src: '~/plugins/swiper.js', mode: 'client' },
     '~/plugins/vue-gtag.js',
     '~/plugins/vue-touch-events.js',
-    '~/plugins/vue-dayjs.js',
-],
+    '~/plugins/vue-dayjs.js'
+  ],
   /*
   ** Nuxt.js dev-modules
   */
   buildModules: [
-    '@nuxt/image',
+    '@nuxt/image'
   ],
   /*
   ** Nuxt.js modules
@@ -74,7 +74,7 @@ export default {
   */
   build: {
     babel: {
-      presets({ isServer }) {
+      presets ({ isServer }) {
         const targets = isServer ? { node: 'current' } : { ie: 11 }
         return [
           [require.resolve('@nuxt/babel-preset-app'), { targets }]
@@ -85,13 +85,14 @@ export default {
     ** You can extend webpack config here
     */
     extend (config, ctx) {
-      // config.module.rules.push({
-      //   test: /\.(coffee)$/,
-      //   use: [{ loader: 'coffee-loader' }]
-      // })
+      config.module.rules.push({
+        test: /\.mjs$/,
+        include: /node_modules/,
+        type: 'javascript/auto'
+      })
     }
   },
   image: {
     domains: ['http://localhost:3000']
-  },
+  }
 }
