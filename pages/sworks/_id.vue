@@ -5,20 +5,22 @@
       BIconArrowLeft.mr-2
       | Back to Artworks
   b-row
+    b-col(cols=12 md=8)
+      b-img.w-100.mb-3(:src='urlFor(artwork.image)')
     b-col(cols=12 md=4)
-      .mb-5
-        h1 {{ artwork.title }}
-        h2 {{ artistName }}
+      .mb-3
+        h3 {{ artwork.title }}
+        h4 {{ artistName }}
         a(:href='artwork.artist.website' target='_blank' v-if='artwork.artist && artwork.artist.website') View Artists Website
+        hr
       .mb-3
         p {{ artwork.medium.title }}
         p {{ artwork.dimensions }}
-        p {{ artwork.description }}
+        hr
+        p(v-html='artwork.description')
         h3 ${{ artwork.price }}
       b-button.mb-3(:href='mailto' variant='primary')
         | Inquire
-    b-col(cols=12 md=8)
-      b-img.w-100(:src='urlFor(artwork.image)')
 </template>
 <script lang="js">
 import { BIconArrowLeft } from 'bootstrap-vue'
@@ -31,13 +33,13 @@ export default {
       title: this.artwork.title,
       meta: [
         { property: 'og:title', content: this.artwork.title },
-        { hid: 'description', name: 'description', content: this.artwork.description },
-        { property: 'og:description', content: this.artwork.description },
+        { hid: 'description', name: 'description', content: this.metaDescription },
+        { property: 'og:description', content: this.metaDescription },
         { property: 'og:image', content: urlFor(this.artwork.image) },
         { property: 'og:url', content: `https://www.troostgardens.com${this.$route.path}` },
         { property: 'og:site_name', content: 'Troost Gardens - Kansas City Art' },
         { hid: 'twitter:title', name: 'twitter:title', content: this.artwork.title },
-        { hid: 'twitter:description', name: 'twitter:description', content: this.artwork.description },
+        { hid: 'twitter:description', name: 'twitter:description', content: this.metaDescription },
         { hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
         { hid: 'twitter:image', name: 'twitter:image', content: urlFor(this.artwork.image) }
       ]
@@ -49,6 +51,9 @@ export default {
     },
     artistName () {
       return this.artwork.artist ? this.artwork.artist?.full_name : 'Unknown Artist'
+    },
+    metaDescription () {
+      return `${this.artistName} - ${this.artwork.title}.  ${this.artwork.medium.title}, ${this.artwork.dimensions} at Troost Gardens, Kansas City, MO`
     }
   },
   async asyncData (context) {
