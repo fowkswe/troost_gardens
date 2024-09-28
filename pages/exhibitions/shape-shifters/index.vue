@@ -52,7 +52,7 @@
         b-col(cols='8')
           .content
             p Shape Shifters was a curatorial installation by the nomadic, amorphous gallery project Lodger Arts - run by Charlotte Street fellow Craig Deppen Auge.
-            p  Utilizing the outdated office renovation from decades ago that was in place when Troost Gardens aquired the building, Deppen Auge showcased the work of 3 up-and-coming Kansas City artists, which spaned a warren of small interconnected rooms.
+            p Utilizing the outdated office renovation from decades ago that was in place when Troost Gardens aquired the building, Deppen Auge showcased the work of 3 up-and-coming Kansas City artists, which spaned a warren of small interconnected rooms.
             p From Deppen Auge:
             b-row
               b-col(cols='2')
