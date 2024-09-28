@@ -13,14 +13,17 @@
         h4 {{ artistName }}
         a(:href='artwork.artist.website' target='_blank' v-if='artwork.artist && artwork.artist.website') View Artists Website
         hr
-      .mb-3
-        p {{ artwork.medium.title }}
-        p {{ artwork.dimensions }}
-        hr
-        p(v-html='artwork.description')
-        h3 ${{ artwork.price }}
-      b-button.mb-3(:href='mailto' variant='primary')
-        | Inquire
+      b-row.info.mb-2
+        b-col(cols=8)
+          p {{ artwork.medium.title }}
+          p {{ artwork.dimensions }}
+        b-col(cols=4)
+          h3 ${{ artwork.price }}
+          b-button.mb-3(:href='mailto' variant='primary')
+            | Inquire
+      hr
+
+      p(v-html='artwork.description')
 </template>
 <script lang="js">
 import { BIconArrowLeft } from 'bootstrap-vue'
@@ -70,6 +73,9 @@ export default {
 }
 </script>
 <style lang='sass' scoped>
-ximg
-  width: 100%
+@import '~/assets/variables'
+.info
+  div
+    &:first-of-type
+      border-right: 1px solid $gray-200
 </style>
