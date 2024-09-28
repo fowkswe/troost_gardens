@@ -5,11 +5,33 @@
       .caption December 22, 2021 5:24pm
     .content
       section
-        p Visit our <a href='https://www.instagram.com/troostgardens/' target='_blank'>Instagram</a> account for up-to-date details.
-      section
+        p We are on hiatus at the moment.  We have shows scheledued for Fall 2024.  Please visit our <a href='https://www.instagram.com/troostgardens/' target='_blank'>Instagram</a> account for up-to-date details.
+      //- section
         h2 
           span Current 
           | Exhibition
+          section.exhibtion
+        //- b-row
+          b-col.order-2.order-lg-1(cols='12' md='5')
+            .d-flex.flex-column.justify-content-between.h-100
+              .info
+                h3.mb-4
+                  a(href='/exhibitions/primer')
+                    | {{current_exhibition.title}}: {{current_exhibition.sub_title}}
+                h4
+                  | {{current_exhibition.start_date | dayjs('MMMM D, YYYY')}} -
+                  | {{current_exhibition.end_date | dayjs('MMMM D, YYYY')}}
+              a.view.d-flex.align-items-center(:href='`/exhibitions/${current_exhibition.slug}`')
+                span.mr-2 View Exhibition
+                RightArrow
+
+          b-col.order-1.order-lg-2(cols='12' md='7')
+            a(:href='`/exhibitions/${current_exhibition.slug}`')
+              nuxt-img.mb-3.mb-lg-0(fluid :src='current_exhibition.primary_image.image.thumb.url')
+      section
+        h2
+          span Past&nbsp;
+          | Exhibitions
           section.exhibtion
         b-row
           b-col.order-2.order-lg-1(cols='12' md='5')
@@ -43,28 +65,6 @@
               .image.p-3
                 nuxt-img(src='images/pollinating-visions/amanda-gehin-hummingbird-vs-von-karman-vortex-streets-shedding-off-stems.jpg' sizes="sm:100vw lg:1400px")
                 .caption Amanda Gehin: Hummingbird vs Von Kármán Vortex Streets Shedding off Stems
-        //- b-row
-          b-col.order-2.order-lg-1(cols='12' md='5')
-            .d-flex.flex-column.justify-content-between.h-100
-              .info
-                h3.mb-4
-                  a(href='/exhibitions/primer')
-                    | {{current_exhibition.title}}: {{current_exhibition.sub_title}}
-                h4 
-                  | {{current_exhibition.start_date | dayjs('MMMM D, YYYY')}} -
-                  | {{current_exhibition.end_date | dayjs('MMMM D, YYYY')}}
-              a.view.d-flex.align-items-center(:href='`/exhibitions/${current_exhibition.slug}`') 
-                span.mr-2 View Exhibition
-                RightArrow
-              
-          b-col.order-1.order-lg-2(cols='12' md='7')
-            a(:href='`/exhibitions/${current_exhibition.slug}`') 
-              nuxt-img.mb-3.mb-lg-0(fluid :src='current_exhibition.primary_image.image.thumb.url')
-      section
-        h2 
-          span Past 
-          | Exhibitions
-          section.exhibtion
         b-row
           b-col.order-2.order-lg-1(cols='12' md='5')
             .d-flex.flex-column.justify-content-between.h-100
