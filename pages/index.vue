@@ -4,13 +4,45 @@
       nuxt-img.img(src='images/tg_building_front_12_22_21.jpg' sizes="sm:100vw lg:1400px")
       .caption December 22, 2021 5:24pm
     .content
-      section
-        p We are on hiatus at the moment.  We have shows scheledued for Fall 2024.  Please visit our <a href='https://www.instagram.com/troostgardens/' target='_blank'>Instagram</a> account for up-to-date details.
       //- section
+        p We are on hiatus at the moment.  We have shows scheledued for Fall 2024.  Please visit our <a href='https://www.instagram.com/troostgardens/' target='_blank'>Instagram</a> account for up-to-date details.
+      section
         h2 
           span Current 
           | Exhibition
           section.exhibtion
+        b-row
+          b-col.order-2.order-lg-1(cols='12' md='5')
+            .d-flex.flex-column.justify-content-between.h-100
+              .info
+                h3.mb-4
+                  a(href='/exhibitions/a-true-thing-that-stays-secret') A True Thing That Stays Secret
+                h4 September 28th - November 2, 2024
+
+                h3 Artists
+                ul
+                  li
+                    a(href='https://www.instagram.com/erinlindsdods/' target='_blank') Erin Dodson
+                  li
+                    a(href='https://www.instagram.com/alex_skorija/' target='_blank') Alex Skorija
+                  li
+                    a(href='https://www.instagram.com/lbtk/' target='_blank') Leah Tacha
+                  li
+                    a(href='https://www.instagram.com/katoler/' target='_blank') Katherine Toler
+
+              a.view.d-flex.align-items-center(:href='`/exhibitions/a-true-thing-that-stays-secret`')
+                span.mr-2 View Exhibition
+                RightArrow
+
+          b-col.order-1.order-lg-2(cols='12' md='7')
+            a(:href='`/exhibitions/a-true-thing-that-stays-secret`')
+              b-row
+                b-col
+                  nuxt-img.mb-3.mb-lg-0(fluid src='images/a-true-thing-that-stays-secret/tacha-ellis-in-the-yard.jpg')
+                  .caption Leah Tacha, Ellis in the Yard, 2024
+                b-col
+                  nuxt-img.mb-3.mb-lg-0(fluid src='images/a-true-thing-that-stays-secret/alex-true-thing.jpg')
+                  .caption Alex Skorija, A True Thing, 2024
         //- b-row
           b-col.order-2.order-lg-1(cols='12' md='5')
             .d-flex.flex-column.justify-content-between.h-100

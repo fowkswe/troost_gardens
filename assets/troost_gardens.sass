@@ -1,6 +1,7 @@
 @import 'variables'
 @import '~bootstrap/scss/bootstrap.scss'
 @import '~bootstrap-vue/src/index.scss'
+$tgRed: #ff5722
 
 @font-face
   font-family: 'FA'
@@ -15,7 +16,7 @@ body
 
 
 a
-  color: #ff5722
+  color: $tgRed
   &:hover
     color: black
     border-bottom: 1px solid black
@@ -53,6 +54,10 @@ p
   line-height: 1.6em
 section
   margin-bottom: 50px
+ul
+  margin: 0
+  padding: 0
+  list-style-position: inside
 
 .container
   max-width: 1440px !important
